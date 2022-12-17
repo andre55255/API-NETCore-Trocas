@@ -1,0 +1,7 @@
+﻿Add-Migration nameMig -Project ExchangeApp.Infrastructure -o Data/Pg/Migrations
+
+Remove-Migration
+
+Script-Migration
+
+Update-Database
