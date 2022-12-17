@@ -1,4 +1,4 @@
-﻿using ExchangeApp.Infrastructure.Data.Pg.Context;
+﻿using ExchangeApp.Infrastructure.Data.MySql.Context;
 using Microsoft.EntityFrameworkCore;
 
 namespace ExchangeApp.API.Extensions
@@ -7,12 +7,11 @@ namespace ExchangeApp.API.Extensions
     {
         public static IServiceCollection AddDbContext(this IServiceCollection services, IConfiguration configuration)
         {
-            string pgConn = configuration.GetConnectionString("Pg");
+            string mySqlConn = configuration.GetConnectionString("MySql");
 
-            services.AddDbContext<PgDbContext>(opt =>
+            services.AddDbContext<MySqlDbContext>(opt =>
             {
-                opt.UseNpgsql(pgConn,
-                    builder => builder.EnableRetryOnFailure());
+                opt.UseMySql(mySqlConn, new MySqlServerVersion(new Version(8, 0)));
             }, ServiceLifetime.Scoped, ServiceLifetime.Scoped);
 
             return services;

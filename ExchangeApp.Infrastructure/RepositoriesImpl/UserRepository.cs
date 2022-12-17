@@ -1,7 +1,7 @@
 ﻿using ExchangeApp.Core.Entities;
 using ExchangeApp.Core.RepositoriesInterface;
 using ExchangeApp.Helpers;
-using ExchangeApp.Infrastructure.Data.Pg.Context;
+using ExchangeApp.Infrastructure.Data.MySql.Context;
 using FluentResults;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -11,9 +11,9 @@ namespace ExchangeApp.Infrastructure.RepositoriesImpl
     public class UserRepository : IUserRepository
     {
         private readonly SignInManager<ApplicationUser> _signInManager;
-        private readonly PgDbContext _db;
+        private readonly MySqlDbContext _db;
 
-        public UserRepository(PgDbContext db, SignInManager<ApplicationUser> signInManager)
+        public UserRepository(MySqlDbContext db, SignInManager<ApplicationUser> signInManager)
         {
             _db = db;
             _signInManager = signInManager;

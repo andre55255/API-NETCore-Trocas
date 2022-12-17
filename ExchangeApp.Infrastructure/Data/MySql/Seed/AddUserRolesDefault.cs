@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace ExchangeApp.Infrastructure.Data.Pg.Seed
+namespace ExchangeApp.Infrastructure.Data.MySql.Seed
 {
     public class AddUserDefault : IEntityTypeConfiguration<ApplicationUser>
     {
@@ -23,6 +23,8 @@ namespace ExchangeApp.Infrastructure.Data.Pg.Seed
                 Instagram = null,
                 Whatsapp = "31995600166",
                 PhoneNumber = "31995600166",
+                SecurityStamp = Guid.NewGuid().ToString(),
+                ConcurrencyStamp = Guid.NewGuid().ToString(),
                 CreatedAt = DateTime.Now,
                 UpdatedAt = DateTime.Now,
             };

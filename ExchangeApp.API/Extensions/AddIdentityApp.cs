@@ -1,6 +1,6 @@
 ﻿using ExchangeApp.Core.Entities;
 using ExchangeApp.Helpers;
-using ExchangeApp.Infrastructure.Data.Pg.Context;
+using ExchangeApp.Infrastructure.Data.MySql.Context;
 using Microsoft.AspNetCore.Identity;
 
 namespace ExchangeApp.API.Extensions
@@ -12,7 +12,7 @@ namespace ExchangeApp.API.Extensions
             services.AddIdentity<ApplicationUser, RoleUser>(opt =>
                        opt.SignIn.RequireConfirmedEmail = true
                    )
-                   .AddEntityFrameworkStores<PgDbContext>()
+                   .AddEntityFrameworkStores<MySqlDbContext>()
                    .AddDefaultTokenProviders()
                    .AddTokenProvider(Tokens.LoginProviderRefreshTokenApp,
                                      typeof(DataProtectorTokenProvider<ApplicationUser>));

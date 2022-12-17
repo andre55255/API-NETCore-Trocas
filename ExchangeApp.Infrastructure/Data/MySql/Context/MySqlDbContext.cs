@@ -1,22 +1,20 @@
 ﻿using ExchangeApp.Core.Entities;
-using ExchangeApp.Infrastructure.Data.Pg.EntitiesConfiguration;
-using ExchangeApp.Infrastructure.Data.Pg.Seed;
+using ExchangeApp.Infrastructure.Data.MySql.EntitiesConfiguration;
+using ExchangeApp.Infrastructure.Data.MySql.Seed;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
-namespace ExchangeApp.Infrastructure.Data.Pg.Context
+namespace ExchangeApp.Infrastructure.Data.MySql.Context
 {
-    public class PgDbContext : IdentityDbContext<ApplicationUser, RoleUser, string>
+    public class MySqlDbContext : IdentityDbContext<ApplicationUser, RoleUser, string>
     {
-        public PgDbContext(DbContextOptions<PgDbContext> opt) : base(opt)
+        public MySqlDbContext(DbContextOptions<MySqlDbContext> opt) : base(opt)
         {
         }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
-
-            builder.UseIdentityAlwaysColumns();
 
             // Seed
             builder.ApplyConfiguration(new AddUserDefault());

@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace ExchangeApp.Infrastructure.Data.Pg.EntitiesConfiguration
+namespace ExchangeApp.Infrastructure.Data.MySql.EntitiesConfiguration
 {
     public class ApplicationUserConfiguration : IEntityTypeConfiguration<ApplicationUser>
     {
